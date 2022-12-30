@@ -561,6 +561,15 @@ display : inline-block;
 		}
 		
 	// Charger le fichier CSV lorsque la page est chargée
+	window.addEventListener("load", () => {
+		let request = new XMLHttpRequest();
+		request.open("GET", "Adv Javascript.csv");
+		request.addEventListener("load", () => {
+			let csv = request.responseText;
+			processData(csv);
+		});
+		request.send();
+	});
 
 	
 
