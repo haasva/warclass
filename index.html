@@ -559,17 +559,17 @@ async function readCSV(csv) {
 }
 		
 	// Charger le fichier CSV lorsque la page est chargée
-	window.addEventListener("load", async () => {
-		let request = new XMLHttpRequest();
-		request.open("GET", "Adv Javascript.csv");
-		request.addEventListener("load", () => {
-			let csv = request.responseText;
-			data = readCSV(csv);
-			let table = document.getElementById("dataTable");
-			applyFilter();
-		});
-		request.send();
+window.addEventListener("load", async () => {
+	let request = new XMLHttpRequest();
+	request.open("GET", "Adv Javascript.csv");
+	request.addEventListener("load", () => {
+		let csv = request.responseText;
+		console.log(csv); // Afficher le contenu du fichier CSV
+		data = readCSV(csv);
+		let table = document.getElementById("dataTable");
 	});
+	request.send();
+});
 	
 
 		// Lire le fichier CSV et afficher ses données dans un tableau HTML
