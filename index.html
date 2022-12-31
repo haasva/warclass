@@ -546,7 +546,7 @@ display : inline-block;
 // Fonction pour lire un fichier CSV et retourner ses données sous forme de tableau
 async function readCSV() {
 	let request = new XMLHttpRequest();
-	request.open("GET", "Adv Javascript.csv");
+	request.open("GET", "Adv.csv");
 	request.addEventListener("load", async () => {
 		let csv = request.responseText;
 		let rows = [];
