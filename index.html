@@ -544,41 +544,26 @@ display : inline-block;
 }
 
 // Fonction pour lire un fichier CSV et retourner ses données sous forme de tableau
-async function readCSV(csv) {
-  return new Promise((resolve, reject) => {
-    let rows = [];
-    let fileReader = new FileReader();
-    fileReader.onload = function(event) {
-      let csvData = event.target.result;
-      let lines = csvData.split("\n");
-      lines.forEach(function(line) {
-        rows.push(line.split("\t"));
-      });
-      resolve(rows);
-    };
-    fileReader.onerror = function(error) {
-      reject(error);
-    };
-    fileReader.readAsText(csv, "UTF-8");
-  });
+async function readCSV() {
+	let request = new XMLHttpRequest();
+	request.open("GET", "Adv Javascript.csv");
+	request.addEventListener("load", async () => {
+		let csv = request.responseText;
+		let rows = [];
+		let lines = csv.split("\n");
+		lines.forEach(function(line) {
+			rows.push(line.split("\t"));
+		});
+		return rows;
+	});
+	request.send();
 }
 
-// Charger le fichier CSV lorsque la page est chargée
 window.addEventListener("load", async () => {
-  let filePath = "Adv.csv"; // Chemin d'accès du fichier CSV
-  let data;
-
-  try {
-    let response = await fetch(filePath);
-    let csv = await response.text();
-    data = await readCSV(csv);
-  } catch (error) {
-    console.error(error);
-  }
-
-  console.log(data); // Afficher les données du fichier CSV
+	let data = await readCSV();
+	let table = document.getElementById("dataTable");
 });
-	
+
 
 		// Lire le fichier CSV et afficher ses données dans un tableau HTML
 		async function loadData() {
