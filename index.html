@@ -567,7 +567,6 @@ display : inline-block;
 		request.addEventListener("load", () => {
 			let file = request.responseText;
 			data = readCSV(file);
-			fileReader.readAsText(file, "UTF-8");
 			console.log(file);
 			let table = document.getElementById("dataTable");
 		});
