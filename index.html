@@ -543,7 +543,7 @@ display : inline-block;
 	list.innerHTML += "<div>" + card[0] + "</div>";
 }
 
-		// Fonction pour lire un fichier CSV et retourner ses données sous forme de tableau
+// Fonction pour lire un fichier CSV et retourner ses données sous forme de tableau
 async function readCSV(csv) {
 	return new Promise((resolve, reject) => {
 		let reader = new FileReader();
@@ -557,15 +557,15 @@ async function readCSV(csv) {
 		};
 	});
 }
-		
-	// Charger le fichier CSV lorsque la page est chargée
+
+// Charger le fichier CSV lorsque la page est chargée
 window.addEventListener("load", async () => {
 	let request = new XMLHttpRequest();
 	request.open("GET", "Adv Javascript.csv");
 	request.addEventListener("load", () => {
 		let csv = request.responseText;
-		console.log(csv); // Afficher le contenu du fichier CSV
-		data = readCSV(csv);
+		let file = new File([csv], "file.csv", { type: "text/csv" });
+		data = readCSV(file);
 		let table = document.getElementById("dataTable");
 	});
 	request.send();
