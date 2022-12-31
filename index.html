@@ -566,6 +566,7 @@ async function readCSV(csv) {
 			let csv = request.responseText;
 			data = readCSV(csv);
 			let table = document.getElementById("dataTable");
+			applyFilter();
 		});
 		request.send();
 	});
