@@ -564,8 +564,7 @@ display : inline-block;
 		}
 
 		// Lire le fichier CSV et afficher ses données dans un tableau HTML
-
-	async function loadData() {
+		async function loadData() {
 		let response = await fetch("Adv.csv");
 		let file = await response.text();
 		let table = document.getElementById("dataTable");
