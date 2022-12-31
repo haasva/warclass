@@ -544,7 +544,7 @@ display : inline-block;
 }
 
 // Fonction pour lire un fichier CSV et retourner ses données sous forme de tableau
-async function readCSV(csv) {
+async function readCSV(file) {
 	return new Promise((resolve, reject) => {
 		let reader = new FileReader();
 		reader.readAsText(csv);
@@ -565,6 +565,7 @@ window.addEventListener("load", async () => {
 	request.addEventListener("load", () => {
 		let csv = request.responseText;
 		let file = new File([csv], "file.csv", { type: "text/csv" });
+		console.log(file); // Afficher l'objet File
 		data = readCSV(file);
 		let table = document.getElementById("dataTable");
 	});
