@@ -558,7 +558,7 @@ resolve(rows);
 	// Charger le fichier CSV lorsque la page est chargée
 window.addEventListener("load", async () => {
 let request = new XMLHttpRequest();
-request.open("GET", "Adv Javascript.csv");
+request.open("GET", "Adv.csv");
 request.addEventListener("load", () => {
 let csvData = request.responseText;
 console.log(csvData); // Afficher le contenu du fichier CSV
