@@ -543,7 +543,7 @@ display : inline-block;
 	list.innerHTML += "<div>" + card[0] + "</div>";
 }
 
-// Fonction pour lire un fichier CSV et retourner ses données sous forme de tableau
+		// Fonction pour lire un fichier CSV et retourner ses données sous forme de tableau
 		function readCSV(file) {
 			return new Promise(resolve => {
 				let rows = [];
@@ -556,6 +556,9 @@ display : inline-block;
 					});
 					resolve(rows);
 				};
+			fileReader.onerror = (error) => {
+				reject(error);
+			};
 				fileReader.readAsText(file, "UTF-16");
 			});
 		}
