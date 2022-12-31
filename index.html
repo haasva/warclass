@@ -566,7 +566,7 @@ display : inline-block;
 	// Charger le fichier CSV lorsque la page est chargée
 	window.addEventListener("load", async () => {
 		let request = new XMLHttpRequest();
-		request.open("GET", "YOUR_FILE_URL");
+		request.open("GET", "Adv.csv");
 		request.addEventListener("load", () => {
 			let file = request.responseText;
 			data = readCSV(file);
