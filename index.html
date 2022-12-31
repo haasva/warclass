@@ -544,7 +544,7 @@ display : inline-block;
 }
 
 		// Fonction pour lire un fichier CSV et retourner ses données sous forme de tableau
-function readCSV(csvData) {
+async function readCSV(csvData) {
 return new Promise(resolve => {
 let rows = [];
 let lines = csvData.split("\n");
