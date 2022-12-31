@@ -556,10 +556,7 @@ display : inline-block;
 					});
 					resolve(rows);
 				};
-			fileReader.onerror = (error) => {
-				reject(error);
-			};
-				fileReader.readAsText(file, "UTF-16");
+				fileReader.readAsText(file, "UTF-8");
 			});
 		}
 
@@ -570,6 +567,7 @@ display : inline-block;
 		request.addEventListener("load", () => {
 			let file = request.responseText;
 			data = readCSV(file);
+			fileReader.readAsText(file, "UTF-8");
 			console.log(file);
 			let table = document.getElementById("dataTable");
 		});
