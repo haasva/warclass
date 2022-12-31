@@ -563,19 +563,18 @@ display : inline-block;
 			});
 		}
 
-// Charger le fichier CSV lorsque la page est chargée
-window.addEventListener("load", async () => {
-	let request = new XMLHttpRequest();
-	request.open("GET", "Adv Javascript.csv");
-	request.addEventListener("load", () => {
-		let csv = request.responseText;
-		let file = new File([csv], "file.csv", { type: "text/csv" });
-		console.log(file); // Afficher l'objet File
-		data = readCSV(file);
-		let table = document.getElementById("dataTable");
+	// Charger le fichier CSV lorsque la page est chargée
+	window.addEventListener("load", async () => {
+		let request = new XMLHttpRequest();
+		request.open("GET", "YOUR_FILE_URL");
+		request.addEventListener("load", () => {
+			let file = request.responseText;
+			data = readCSV(file);
+			console.log(file);
+			let table = document.getElementById("dataTable");
+		});
+		request.send();
 	});
-	request.send();
-});
 	
 
 		// Lire le fichier CSV et afficher ses données dans un tableau HTML
